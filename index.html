@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<title>Practice Problems</title>
+</head>
+<script>
+my_array = ["this", "that", "apple", "hippopotamus", "lizard", "computer", "piano"];
+
+function biggerWords(string, my_array){
+	var output = [];
+	for (i=0;i<my_array.length;i++){
+		if (my_array[i].length > string.length){
+			output.push(my_array[i]);
+		}
+	}
+	console.log(output);
+}
+biggerWords("hello", my_array);
+/*------------------------------------------------------------------------------------------------------*/
+my_array = ["this", "that", "apple", "hippopotamus", "lizard", "computer", "piano"];
+function totalReverse(my_array){
+	var output = []
+	var i = -1
+	while (my_array.length>0){
+		
+		output.push(my_array.pop())
+	}
+	console.log(output);
+}
+totalReverse(my_array);
+
+/*------------------------------------------------------------------------------------------------------*/
+
+my_array = ['hello', 34, true, false, 'goodbye', 56, 12, '25', true]
+
+function oneToMulti(my_array){
+	output = [];
+	num_array = [];
+	bool_array = [];
+	str_array = [];
+	for (i=0; i< my_array.length;i++){
+		if (typeof(my_array[i]) == 'number'){
+			num_array.push(my_array[i]);
+		}else if (typeof(my_array[i]) == 'boolean'){
+			bool_array.push(my_array[i]);
+		}else if (typeof(my_array[i]) == 'string'){
+			str_array.push(my_array[i]);
+		}
+    }
+	output.push(num_array, bool_array, str_array);
+    console.log(output)
+};
+oneToMulti(my_array);
+
+/*------------------------------------------------------------------------------------------------------*/
+var my_array = ['mouse', 'cat', 'dog', 'human']
+function mySort(my_array){
+	for (i=1;i<my_array.length;i++){
+		console.log('my_array[i-1], my_array[i]: '+ my_array[i-1]+' ' +my_array[i]);
+		console.log('my_array: '+ my_array)
+		if (my_array[i-1] > my_array[i]){
+			var less = my_array[i];
+			console.log('less: '+less);
+			my_array[i] = my_array[i-1];
+			my_array[i-1] = less;
+			i = 0;
+		}
+		 
+	}
+	console.log(my_array);
+};
+mySort(my_array);
+
+
+/*------------------------------------------------------------------------------------------------------*/
+
+function fizzBuzz(){
+	for (i=1; i<=100; i++){
+		if((i%3==0) && (i%5==0)){
+			console.log('FizzBuzz')
+		} else if (i%3==0){
+			console.log('Fizz')
+		} else if (i%5==0){
+			console.log('Buzz')
+		} else{
+			console.log(i)
+		}
+	}
+}
+
+fizzBuzz();
+
+/*------------------------------------------------------------------------------------------------------*/
+
+function spiral(amount){
+	var fib_array=[0,1]
+	for (i=1;i<amount-1; i++){
+        console.log('i: '+i);
+
+        var last_index = fib_array.length-1;
+		console.log('(fib_array[last_index]+fib_array[last_index-1]): '+ (fib_array[last_index]+fib_array[last_index-1]))
+        fib_array.push((fib_array[last_index]+fib_array[last_index-1]))
+	}
+	
+	console.log(fib_array);
+
+
+}
+
+spiral(12);
+
+
+/*------------------------------------------------------------------------------------------------------*/
+
+function igpayAtinlay(string){
+	output = [];
+	var vowel_array = ['a', 'e', 'i', 'o', 'u', 'y'];
+	var con_clust_array2 = ['wh','th','sm', 'sn', 'st', 'sw', 'sk', 'sl', 'sp', 'dw', 'tw', 'dr', 'tr',  'cr', 'cl', 'pr', 'fr', 'br', 'gr', 'pl', 'fl', 'bl', 'gl','qu']
+	var con_clust_array3 =['sph','thw','thr','shr']
+	string_array = string.split(' ');
+	for (i=0;i<string_array.length;i++){
+		console.log('current word: '+ string_array[i]);
+		if (vowel_array.indexOf(string_array[i].substr(0,1)) !== -1){
+			console.log('In vowel conditional');
+			var prefix = '';
+			var root = string_array[i];
+			var suffix = 'way';
+		}
+		else if (con_clust_array3.indexOf(string_array[i].substr(0,3)) !== -1){
+			console.log('In cluster3 conditional');
+			var prefix = string_array[i].substr(0,3);
+			var root = string_array[i].substr(3);
+			var suffix = 'ay';
+		}
+		else if (con_clust_array2.indexOf(string_array[i].substr(0,2)) !== -1){
+			console.log('In cluster2  conditional');
+			var prefix = string_array[i].substr(0,2);
+			var root = string_array[i].substr(2);
+			var suffix = 'ay';
+		} else{
+			console.log('In single consonant conditional');
+			var prefix = string_array[i].substr(0,1);
+			var root = string_array[i].substr(1);
+			var suffix = 'ay';
+		}
+		
+		var new_word = root+prefix+suffix
+		console.log('pigified: '+new_word);
+		output.push(new_word);
+		console.log('output: '+ output)
+		console.log('--------------------------------------------------------')
+	}
+	output.join(' ');
+	console.log(output);
+
+}
+igpayAtinlay("Hello govnah what is put out when I type this");
+
+
+
+
+
+
+
+
+</script>
+
+<body>
+
+</body>
+</html>
